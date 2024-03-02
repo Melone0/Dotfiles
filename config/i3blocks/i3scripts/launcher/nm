@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "<span font='FontAwesome 15'>󰖂</span>"
+# Check for left click
+if [ "$BLOCK_BUTTON" -eq 1 ]; then
+    # Left click action - open network manager
+    /home/melone/.config/i3blocks/i3scripts/networkmanager/networkmenu.py
+else
+    # Display network manager icon
+    echo "<span font='FontAwesome 15'>󰖂</span>"
+fi

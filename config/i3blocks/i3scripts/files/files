@@ -1,0 +1,5 @@
+#!/bin/bash
+
+nautilus ~/ &
+
+echo  <span font='FontAwesome 20'> </span>

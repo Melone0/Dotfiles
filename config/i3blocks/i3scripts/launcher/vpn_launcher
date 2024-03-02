@@ -1,0 +1,31 @@
+#!/bin/bash
+# Variables
+# Check the public ip which outputs to a file
+#!/bin/bash
+# i3Blocks VPN status command 
+
+# Variables 
+# Check the public ip which outputs to a file 
+# Functions
+#Check VPN status; see if tun0 existings as a connection
+getVPN () 
+{
+if nmcli con show | grep "tun0" > /dev/null ; then
+  echo "<span font='FontAwesome' color='#a3a0d4'>VPN:</span>" "<span font='FontAwesome 13' color='#a2dcc8'></span>"
+else
+  echo "<span font='FontAwesome' color='#a3a0d4'>VPN:</span>" "<span font='FontAwesome 13' color='#fa5757'></span>"
+fi
+}
+
+
+getVPN
+
+
+if [ "$BLOCK_BUTTON" -eq 1 ]; then
+    # Left click action - open network manager
+    /home/melone/.config/i3blocks/i3scripts/vpn/vpn.sh
+else
+    # Display network manager icon
+   echo "<span font='FontAwesome 15'>󰖂</span>"
+fi
+#a3a0d4

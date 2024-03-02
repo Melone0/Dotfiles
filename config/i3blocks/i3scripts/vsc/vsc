@@ -1,0 +1,5 @@
+#!/bin/bash
+
+code &
+
+echo  "<span font='FontAwesome 20'>󰨞</span>"

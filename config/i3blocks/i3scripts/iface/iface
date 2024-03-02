@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+IF=`cat /tmp/last_used_if`
+
+if [ -z "$IF" ]
+then
+      hostname -I
+else
+      ip addr show $IF| awk '/inet / {print $2}'
+fi

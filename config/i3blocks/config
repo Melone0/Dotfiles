@@ -1,0 +1,193 @@
+# Global properties
+
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+
+
+#command=$SCRIPT_DIR/$BLOCK_NAME
+#separator_block_width=15
+markup=pango
+
+
+separator=false
+separator_block_width=20
+border_top=3
+border_left=0
+border_right=0
+border_bottom=0
+
+# Volume indicator
+#
+# The first parameter sets the step (and units to display)
+# The second parameter overrides the mixer selection
+# See the script for details.
+#
+#[files]
+#label=Files
+#full_text= 
+#color=#7f3fbf
+#command=$SCRIPT_DIR/files/files.sh
+#align=left
+
+#[firefox]
+#full_text= 
+#color=#7f3fbf
+#command=$SCRIPT_DIR/firefox/firefox.sh
+#align=left
+
+[terminal]
+label=Firefox
+full_text=<span font='FontAwesome 23'> </span>
+color=#4b5e7c
+command=$SCRIPT_DIR/terminal/terminal
+separator=false
+align=center
+background=#a3a0d4
+border=#FF4500
+min_width=___________
+
+
+[files]
+full_text=<span font='FontAwesome 20'> </span>
+color=#4b5e7c
+#command=nautilus &
+command=$SCRIPT_DIR/files/files
+align=center
+background=#a3a0d4
+border=#FF4500
+min_width=___________
+
+
+
+[vsc]
+full_text=<span font='FontAwesome 20'>󰘐 </span>
+color=#4b5e7c
+#command=nautilus &
+command=$SCRIPT_DIR/vsc/vsc
+align=center
+align=center
+background=#a3a0d4
+border=#FF4500
+min_width=___________
+
+
+[firefox]
+full_text=<span font='FontAwesome 20'></span>
+color=#4b5e7c
+command=$SCRIPT_DIR/firefox/firefox.sh
+separator=false
+align=center
+align=center
+background=#a3a0d4
+min_width=___________
+border=#FF4500
+
+
+[sep]
+full_text=                                                 
+
+
+[nm]
+command=$SCRIPT_DIR/launcher/nm
+full_text=<span font='FontAwesome 15'>󰖂</span>
+border=#FF4500
+interval=persist
+min_width=_______
+align=center
+color=#a3a0d4
+
+[vpn]
+command=$SCRIPT_DIR/launcher/vpn_launcher
+#full_text=<span font='FontAwesome 15'>󰖂</span>
+interval=10
+border=#FF4500
+min_width=____________
+align=center
+
+[iface]
+label=
+command=$SCRIPT_DIR/launcher/iface_launcher
+#IFACE=wlan0
+color=#00FF00
+interval=10
+border=#FF4500
+min_width=_________________
+align=center
+color=#a3a0d4
+
+
+[user]
+label=
+command=$SCRIPT_DIR/user/user
+command=lslogins | awk -v user="$USER" '$NF == user {print $NF}'
+interval=once
+border=#FF4500
+min_width=_____________
+align=center
+color=#a3a0d4
+
+[dunst]
+command=$SCRIPT_DIR/dunst/dunst
+interval=once
+format=json
+#min_width=50
+#align=center
+
+
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+command=$SCRIPT_DIR/mem/mem
+label= 
+interval=2
+border=#FF4500
+min_width=____________________
+align=center
+color=#a3a0d4
+
+[volume]
+command=$SCRIPT_DIR/volume/volume
+label=
+interval=once
+signal=10
+#STEP=5%
+border=#FF4500
+min_width=_____________
+align=center
+color=#a3a0d4
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+
+
+# Date Time
+[time]
+#color=#9FE697
+label=
+command=date '+%A, %d %B %Y   %H:%M'
+interval=1
+border=#FF4500
+min_width=_______________________________________________
+color=#a3a0d4
+align=center
+
+
+[shutdown_menu]
+full_text=<span font='FontAwesome 25'></span>
+color=#a3a0d4
+command=$SCRIPT_DIR/shutdown_menu/shutdown_menu
+min_width=________
+align=center
+
+

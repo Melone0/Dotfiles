@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Get IP addresses associated with network interfaces
+ip_info=$(ip addr | awk '/inet / {print $NF, $2}')
+
+# Create an array to store menu options
+menu_options=()
+while read -r interface ip; do
+    menu_options+=("$interface - $ip" "")
+done <<< "$ip_info"
+
+# Display a dialog menu
+selected_option=$(printf "%s\n" "${menu_options[@]}" | rofi -dmenu -i -p "Select IP address")
+
+# Parse the selected option to extract the IP address and interface name
+if [ -n "$selected_option" ]; then
+    selected_ip=$(echo "$selected_option" | awk '{print $NF}')
+    interface_name=$(echo "$selected_option" | awk -F ' - ' '{print $1}')
+
+    # Check if the file exists
+    if [ -f /tmp/last_used_if ]; then
+        # Update the file with the last used interface name
+        echo "$interface_name" > /tmp/last_used_if
+    else
+        # Create a new file and store the interface name
+        echo "$interface_name" > /tmp/last_used_if
+    fi
+fi

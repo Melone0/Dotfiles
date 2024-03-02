@@ -1,0 +1,115 @@
+* {
+    font: "Figtree 13";
+    g-spacing: 10px;
+    g-margin: 0;
+    b-color: #A2C0DC;       // Main color (Blue)
+    fg-color: #222222FF;    // Darker shade of blue for better visibility
+    fgp-color: #888888FF;   // Gray
+    b-radius: 8px;
+    g-padding: 8px;
+    hl-color: #FFFFFFFF;    // White
+    hlt-color: #000000FF;   // Black
+    alt-color: #A2C0DC;     // Alternate color (Light Blue)
+    wbg-color: #4b5e7c;     // Window background color (Light Blue)
+    w-border: 2px solid;
+    w-border-color: #FFFFFFFF; // White
+    w-padding: 12px;
+	green: #a2dcc8;
+}
+
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+}
+
+listview {
+    columns: 1;
+    lines: 7;
+    fixed-height: true;
+    fixed-columns: true;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "real";
+    width: 450px;
+    border-radius: 15px;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @wbg-color;
+    padding: @w-padding;
+}
+
+prompt {
+    text-color: @hl-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Search Apps";
+    text-color: @fg-color;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border: 0px solid;
+    border-radius: @b-radius;
+    border-color: @b-color;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.active {
+    /* Normal active item settings */
+    background-color: @green; /* Main color (Blue) */
+    text-color: #FFFFFFFF; /* White text color */
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element selected.active {
+    background-color: @green; /* Main color (Blue) */
+    text-color: @hlt-color;
+}
+
+element.active {
+  background-color: @green; /* Main color (Blue) */
+  text-color: @hlt-color;
+  border-color: @green; /* Main color (Blue) */
+}
+
+element selected.normal {
+    background-color: #a3a0d4; /* Selected color (Light Blue) */
+    text-color: @hlt-color;
+}
+
+message {
+    background-color: red;
+    border: 0px solid;
+}
+

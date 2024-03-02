@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Function to get free memory percentage
+get_free_mem_percentage() {
+    free -m | awk 'NR==2{printf "%.2f%%\n", $4/($3+$4)*100}'
+}
+
+# Main script
+if [[ $BLOCK_BUTTON -eq 1 ]]; then
+    ./rofi_process_stats.sh pmem
+
+else
+    # If BLOCK_BUTTON is not clicked, just show free memory percentage
+    get_free_mem_percentage
+fi

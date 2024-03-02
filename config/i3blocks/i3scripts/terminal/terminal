@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kitty
+
+echo  <span font='FontAwesome 23'> </span>

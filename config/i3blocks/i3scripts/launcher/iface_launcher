@@ -1,0 +1,9 @@
+#!/bin/bash
+# Check for left click
+if [ "$BLOCK_BUTTON" -eq 1 ]; then
+    # Left click action - open network manager
+    /home/melone/.config/i3blocks/i3scripts/iface/ifacemenu
+else
+    # Display network manager icon
+    /home/melone/.config/i3blocks/i3scripts/iface/iface
+fi

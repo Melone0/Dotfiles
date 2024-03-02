@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get IP addresses associated with network interfaces
+ip_addresses=$(ip addr | grep -oE 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk '{print $2}')
+
+# Create an array to store menu options
+menu_options=()
+while IFS= read -r ip; do
+    menu_options+=("$ip" "")
+done <<< "$ip_addresses"
+
+# Display a dialog menu
+selected_ip=$(printf "%s\n" "${menu_options[@]}" | rofi -dmenu -i -p "IP addresses")
+
+# Display the selected IP address
+if [ -n "$selected_ip" ]; then
+    echo "Selected IP address: $selected_ip"
+fi
